@@ -18,18 +18,18 @@ export default defineConfig({
     ['html'],
     ['list'],
     ['allure-playwright'],
-    ['playwright-html-reporter', { 
-      testFolder: 'tests',
-      title: 'OPEN CART HTML Report',
-      project: 'Open Cart',
-      release: '9.87.6',
-      testEnvironment: 'PROD',
-      embedAssets: true,
-      embedAttachments: true,
-      outputFolder: 'playwright-html-report',
-      minifyAssets: true,
-      startServer: false,
-    }]
+    // ['playwright-html-reporter', { 
+    //   testFolder: 'tests',
+    //   title: 'OPEN CART HTML Report',
+    //   project: 'Open Cart',
+    //   release: '9.87.6',
+    //   testEnvironment: 'PROD',
+    //   embedAssets: true,
+    //   embedAttachments: true,
+    //   outputFolder: 'playwright-html-report',
+    //   minifyAssets: true,
+    //   startServer: false,
+    // }]
   ],
   
   use: {
@@ -39,7 +39,10 @@ export default defineConfig({
     screenshot: 'on',
     video: 'on',
     baseURL: 'https://naveenautomationlabs.com/opencart/index.php',
-    
+    // safer launch options for Chrome/Chromium on CI
+    launchOptions: {
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+    }
   },
 
   metadata: {
@@ -57,6 +60,7 @@ export default defineConfig({
       launchOptions: {
         args: ['--start-maximized'],
         ignoreDefaultArgs: ['--window-size=1280,720']
+        
       }
     }
   },
