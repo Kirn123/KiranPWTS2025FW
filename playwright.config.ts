@@ -18,18 +18,18 @@ export default defineConfig({
     ['html'],
     ['list'],
     ['allure-playwright'],
-    // ['playwright-html-reporter', { 
-    //   testFolder: 'tests',
-    //   title: 'OPEN CART HTML Report',
-    //   project: 'Open Cart',
-    //   release: '9.87.6',
-    //   testEnvironment: 'PROD',
-    //   embedAssets: true,
-    //   embedAttachments: true,
-    //   outputFolder: 'playwright-html-report',
-    //   minifyAssets: true,
-    //   startServer: false,
-    // }]
+    ['playwright-html-reporter', { 
+      testFolder: 'tests',
+      title: 'OPEN CART HTML Report',
+      project: 'Open Cart',
+      release: '9.87.6',
+      testEnvironment: 'PROD',
+      embedAssets: true,
+      embedAttachments: true,
+      outputFolder: 'playwright-html-report',
+      minifyAssets: true,
+      startServer: false,
+    }]
   ],
   
   use: {
