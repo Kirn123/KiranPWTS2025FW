@@ -160,6 +160,13 @@ jobs:
             fi
           done
 
+      - name: ✅ Ensure report folders exist
+        if: always()
+        run: |
+          mkdir -p allure-results playwright-report playwright-html-report test-results
+          # create placeholder so uploads are not empty
+          [ -f "allure-results/.placeholder" ] || echo "no-results" > allure-results/.placeholder
+
       - name: 📊 Upload HTML Report
         uses: actions/upload-artifact@v4
         if: always()
@@ -255,6 +262,12 @@ jobs:
               sed -i 's/"name":"\([^"]*\)"/"name":"[QA] \1"/g' "$file" 2>/dev/null || true
             fi
           done
+
+      - name: ✅ Ensure report folders exist
+        if: always()
+        run: |
+          mkdir -p allure-results playwright-report playwright-html-report test-results
+          [ -f "allure-results/.placeholder" ] || echo "no-results" > allure-results/.placeholder
 
       - name: 📊 Upload HTML Report
         uses: actions/upload-artifact@v4
@@ -354,6 +367,12 @@ jobs:
             fi
           done
 
+      - name: ✅ Ensure report folders exist
+        if: always()
+        run: |
+          mkdir -p allure-results playwright-report playwright-html-report test-results
+          [ -f "allure-results/.placeholder" ] || echo "no-results" > allure-results/.placeholder
+
       - name: 📊 Upload HTML Report
         uses: actions/upload-artifact@v4
         if: always()
@@ -451,6 +470,12 @@ jobs:
               sed -i 's/"name":"\([^"]*\)"/"name":"[PROD] \1"/g' "$file" 2>/dev/null || true
             fi
           done
+
+      - name: ✅ Ensure report folders exist
+        if: always()
+        run: |
+          mkdir -p allure-results playwright-report playwright-html-report test-results
+          [ -f "allure-results/.placeholder" ] || echo "no-results" > allure-results/.placeholder
 
       - name: 📊 Upload HTML Report
         uses: actions/upload-artifact@v4
